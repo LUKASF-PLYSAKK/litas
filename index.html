@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="cs" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@littas16_coach | Osobní fitness trenér – Správná technika &amp; Skutečná síla</title>
+  <meta name="description" content="Osobní fitness trenér @littas16_coach. Správná technika, skutečná síla a trvalé výsledky. Podívej se na video ukázky biomechaniky cviků a domluv si trénink." />
+
+  <!-- Google Fonts: Teko / Space Grotesk / Inter for modern athletic precision -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#0b0b0d',
+            graphite: '#141418',
+            graphiteLight: '#1c1c22',
+            neon: {
+              DEFAULT: '#ff5500',
+              hover: '#ff6b00',
+              glow: 'rgba(255, 85, 0, 0.35)'
+            }
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif']
+          },
+          boxShadow: {
+            'neon': '0 0 28px -4px rgba(255, 85, 0, 0.45)',
+            'neon-lg': '0 0 45px -5px rgba(255, 107, 0, 0.6)',
+            'card': '0 20px 40px -15px rgba(0, 0, 0, 0.75)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      background-color: #0b0b0d;
+      color: #f4f4f6;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Subtle tactical gym grid background */
+    .bg-gym-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    }
+
+    /* 9:16 Vertical Reels Container */
+    .aspect-reel {
+      aspect-ratio: 9 / 16;
+    }
+
+    /* Native Modal Dialog scroll lock (modern-web-guidance: prevent-page-scroll-under-modal-dialog) */
+    dialog:modal {
+      overscroll-behavior: contain;
+    }
+
+    dialog::backdrop {
+      overflow: hidden;
+      overscroll-behavior: contain;
+      background-color: rgba(11, 11, 13, 0.88);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Carousel Track & Snap (modern-web-guidance: carousel) */
+    .carousel-track {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      touch-action: manipulation;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .carousel-track {
+        scroll-behavior: smooth;
+      }
+    }
+    .carousel-track > .reel-slide {
+      flex: 0 0 85%;
+      scroll-snap-align: center;
+    }
+    @media (min-width: 640px) {
+      .carousel-track > .reel-slide {
+        flex: 0 0 46%;
+      }
+    }
+    @media (min-width: 1024px) {
+      .carousel-track {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        overflow-x: visible;
+        scroll-snap-type: none;
+      }
+      .carousel-track > .reel-slide {
+        flex: initial;
+      }
+    }
+
+    /* Active Carousel Marker */
+    .carousel-markers button[aria-current="true"] {
+      background-color: #ff5500;
+      width: 2rem;
+      box-shadow: 0 0 12px rgba(255, 85, 0, 0.7);
+    }
+
+    /* Form Validation after interaction (modern-web-guidance: validate-input-after-interaction) */
+    .error-msg {
+      display: none;
+      color: #ff6b6b;
+      font-size: 0.8125rem;
+      margin-top: 0.375rem;
+      font-weight: 500;
+    }
+
+    :is(:user-invalid, .user-invalid-fallback) {
+      border-color: #ef4444 !important;
+      background-color: rgba(239, 68, 68, 0.08) !important;
+    }
+
+    :is(:user-invalid, .user-invalid-fallback) + .error-msg {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+
+    :is(:user-valid, .user-valid-fallback) {
+      border-color: rgba(34, 197, 94, 0.6) !important;
+    }
+
+    /* Visually hidden utility (modern-web-guidance) */
+    .visually-hidden:where(:not(:focus-within, :active)) {
+      position: absolute !important;
+      clip-path: inset(50%) !important;
+      overflow: hidden !important;
+      width: 1px !important;
+      height: 1px !important;
+      margin: -1px !important;
+      padding: 0 !important;
+      border: 0 !important;
+      white-space: nowrap !important;
+    }
+
+    /* Range progress bar styling */
+    .video-progress {
+      transition: width 0.15s linear;
+    }
+  </style>
+</head>
+<body class="bg-obsidian text-zinc-100 antialiased selection:bg-neon selection:text-white">
+
+  <!-- TOP NAVIGATION -->
+  <header class="sticky top-0 z-40 border-b border-white/10 bg-obsidian/85 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
+      <a href="#" class="group flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neon">
+        <div class="relative h-10 w-10 overflow-hidden rounded-xl border border-neon/60 bg-graphite shadow-neon">
+          <img src="assets/coach-portrait.jpg" alt="Osobní trenér @littas16_coach" class="h-full w-full object-cover object-top transition duration-300 group-hover:scale-110" />
+        </div>
+        <div>
+          <span class="font-display text-lg font-extrabold tracking-tight text-white">@littas16<span class="text-neon">_coach</span></span>
+          <span class="block text-[11px] font-medium uppercase tracking-widest text-zinc-400">Biomechanika &amp; Silový trénink</span>
+        </div>
+      </a>
+
+      <nav aria-label="Hlavní navigace" class="hidden items-center gap-7 md:flex">
+        <a href="#video-knihovna" class=" flex items-center gap-1.5 text-sm font-semibold text-white transition hover:text-neon">
+          <span class="inline-block h-2 w-2 rounded-full bg-neon animate-pulse"></span>
+          Ukázky cviků &amp; Technika
+        </a>
+        <a href="#filozofie" class="text-sm font-medium text-zinc-300 transition hover:text-white">Filozofie</a>
+        <a href="#sluzby" class="text-sm font-medium text-zinc-300 transition hover:text-white">Tréninky &amp; Balíčky</a>
+        <a href="#poptavka" class="text-sm font-medium text-zinc-300 transition hover:text-white">Kontakt</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="https://www.instagram.com/littas16_coach/" target="_blank" rel="noopener noreferrer"
+           aria-label="Instagram @littas16_coach"
+           class="hidden sm:inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-graphite px-3.5 py-2 text-xs font-semibold text-zinc-300 transition hover:border-neon/50 hover:text-white">
+          <svg class="h-4 w-4 text-neon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          <span>@littas16_coach</span>
+        </a>
+        <a href="#poptavka"
+           class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#ff5500] to-[#ff6b00] px-4 py-2.5 text-xs sm:text-sm font-bold text-white shadow-neon transition hover:brightness-110 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neon">
+          Domluvit trénink
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================
+         HERO SEKCE (S VIDEO PRVKEM)
+         ========================================== -->
+    <section class="relative overflow-hidden bg-gym-grid pt-8 pb-16 sm:pt-14 sm:pb-24 lg:pt-16 lg:pb-28">
+      <!-- Ambient Orange Glows -->
+      <div class="pointer-events-none absolute -top-28 left-1/4 h-96 w-96 -translate-x-1/2 rounded-full bg-neon/15 blur-[130px]"></div>
+      <div class="pointer-events-none absolute top-1/3 right-10 h-80 w-80 rounded-full bg-[#ff6b00]/10 blur-[110px]"></div>
+
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+          
+          <!-- Left Column: Hero Copy & CTAs -->
+          <div class="lg:col-span-7 space-y-6 sm:space-y-8">
+            <div class="inline-flex items-center gap-2.5 rounded-full border border-neon/30 bg-neon/10 px-4 py-1.5 text-xs sm:text-sm font-semibold text-[#ff6b00]">
+              <span class="flex h-2 w-2 rounded-full bg-neon"></span>
+              <span>OSOBNÍ FITNESS TRENÉR • BIOMECHANIKA V POHYBU</span>
+            </div>
+
+            <h1 class="font-display text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-[3.65rem] lg:leading-[1.06]">
+              Správná technika. <br class="hidden sm:inline" />
+              <span class="bg-gradient-to-r from-[#ff5500] via-[#ff6b00] to-amber-400 bg-clip-text text-transparent">Skutečná síla.</span> <br class="hidden sm:inline" />
+              Trvalé výsledky.
+            </h1>
+
+            <p class="max-w-2xl text-base sm:text-xl leading-relaxed text-zinc-300">
+              Podívej se, jak reálně vedu tréninky a jak má vypadat precizní technika cviků. Žádné bezhlavé házení činkami – učíme tělo fungovat efektivně, silně a bez bolesti.
+            </p>
+
+            <!-- Two Hero Buttons as specified -->
+            <div class="flex flex-col gap-3.5 sm:flex-row sm:items-center pt-1">
+              <a href="#poptavka"
+                 class="inline-flex min-h-[54px] items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-[#ff5500] to-[#ff6b00] px-7 py-4 text-base font-bold text-white shadow-neon transition duration-200 hover:shadow-neon-lg hover:brightness-110 active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neon">
+                <span>Chci začít trénovat</span>
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </a>
+
+              <a href="#video-knihovna"
+                 class="inline-flex min-h-[54px] items-center justify-center gap-3 rounded-xl border border-white/15 bg-graphite px-6 py-4 text-base font-semibold text-white transition duration-200 hover:border-neon/60 hover:bg-graphiteLight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neon">
+                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-neon/20 text-neon">
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                  </svg>
+                </span>
+                <span>Ukázky cviků a techniky ↓</span>
+              </a>
+            </div>
+
+            <!-- Quick Telemetry / Trust Indicators -->
+            <div class="grid grid-cols-3 gap-3 pt-4 border-t border-white/10 sm:gap-6">
+              <div class="rounded-xl bg-graphite/80 p-3.5 border border-white/5">
+                <div class="font-display text-2xl sm:text-3xl font-bold text-white">100<span class="text-neon">%</span></div>
+                <p class="mt-0.5 text-xs text-zinc-400">Kontrola dráhy každého opakování</p>
+              </div>
+              <div class="rounded-xl bg-graphite/80 p-3.5 border border-white/5">
+                <div class="font-display text-2xl sm:text-3xl font-bold text-white">9:16</div>
+                <p class="mt-0.5 text-xs text-zinc-400">Reálné video rozbory z fitka</p>
+              </div>
+              <div class="rounded-xl bg-graphite/80 p-3.5 border border-white/5">
+                <div class="font-display text-2xl sm:text-3xl font-bold text-white">1 na 1</div>
+                <p class="mt-0.5 text-xs text-zinc-400">Osobní vedení &amp; diagnostika</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive 9:16 Hero Reels Player -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-[340px] sm:max-w-[360px]">
+              <!-- Decorative glow frame -->
+              <div class=" -inset-1 rounded-[2rem] bg-gradient-to-b from-neon/50 via-neon/10 to-transparent blur-md opacity-75"></div>
+
+              <div class="relative overflow-hidden rounded-[1.75rem] border border-white/15 bg-graphite shadow-card">
+                <!-- Top HUD Bar inside Hero Video -->
+                <div class="absolute top-0 inset-x-0 z-20 flex items-center justify-between bg-gradient-to-b from-black/80 via-black/40 to-transparent p-4">
+                  <div class="flex items-center gap-2.5">
+                    <img src="assets/coach-portrait.jpg" alt="@littas16_coach" class="h-8 w-8 rounded-full border border-neon object-cover object-top" />
+                    <div>
+                      <div class="flex items-center gap-1.5">
+                        <span class="text-xs font-bold text-white">@littas16_coach</span>
+                        <span class="inline-block h-2 w-2 rounded-full bg-neon" title="Ověřená technika"></span>
+                      </div>
+                      <span id="hero-reel-subtitle" class="block text-[11px] text-zinc-300">Komplexní trénink s osou (Landmine)</span>
+                    </div>
+                  </div>
+                  <span class="rounded-md bg-neon px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-neon">
+                    LIVE UKÁZKA
+                  </span>
+                </div>
+
+                <!-- 9:16 Video Element -->
+                <div class="aspect-reel relative w-full bg-black">
+                  <video
+                    id="hero-video"
+                    class="h-full w-full object-cover"
+                    src="assets/video-landmine.mp4"
+                    poster="assets/coach-portrait.jpg"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    preload="metadata">
+                  </video>
+
+                  <!-- Biomechanics HUD Overlay Tags -->
+                  <div class="pointer-events-none absolute inset-x-3 bottom-20 z-20 flex flex-col gap-2">
+                    <div class="inline-flex self-start items-center gap-2 rounded-lg border border-neon/40 bg-obsidian/85 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md">
+                      <span class="h-2 w-2 rounded-full bg-neon animate-ping"></span>
+                      <span id="hero-hud-point-1">Pevný střed těla &amp; kontrola osy kolen</span>
+                    </div>
+                    <div class="inline-flex self-start items-center gap-2 rounded-lg border border-white/15 bg-obsidian/85 px-3 py-1.5 text-xs font-medium text-zinc-200 backdrop-blur-md">
+                      <svg class="h-3.5 w-3.5 text-neon shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span id="hero-hud-point-2">Neutrální páteř v celém rozsahu pohybu</span>
+                    </div>
+                  </div>
+
+                  <!-- Bottom Video Controls Bar -->
+                  <div class="absolute bottom-0 inset-x-0 z-20 bg-gradient-to-t from-black/95 via-black/70 to-transparent p-3.5 pt-8">
+                    <!-- Clip Switcher Tabs -->
+                    <div class="mb-2.5 grid grid-cols-2 gap-1.5 rounded-xl bg-obsidian/90 p-1 border border-white/10">
+                      <button
+                        type="button"
+                        data-hero-clip="landmine"
+                        class="hero-clip-btn rounded-lg bg-neon px-2.5 py-1.5 text-[11px] font-bold text-white transition">
+                        1. Trénink s osou
+                      </button>
+                      <button
+                        type="button"
+                        data-hero-clip="core"
+                        class="hero-clip-btn rounded-lg px-2.5 py-1.5 text-[11px] font-semibold text-zinc-300 hover:text-white transition">
+                        2. Core &amp; Stabilita
+                      </button>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-2">
+                      <div class="flex items-center gap-1.5">
+                        <button
+                          type="button"
+                          id="hero-play-toggle"
+                          aria-label="Pozastavit nebo přehrát video"
+                          class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/15 bg-graphite text-white transition hover:border-neon hover:text-neon">
+                          <svg id="hero-pause-icon" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+                            <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+                          </svg>
+                          <svg id="hero-play-icon" class="hidden h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                          </svg>
+                        </button>
+
+                        <button
+                          type="button"
+                          id="hero-mute-toggle"
+                          aria-label="Zapnout nebo vypnout zvuk"
+                          class="flex h-9 items-center gap-1.5 rounded-lg border border-white/15 bg-graphite px-2.5 text-xs font-semibold text-zinc-200 transition hover:border-neon hover:text-white">
+                          <svg id="hero-muted-icon" class="h-4 w-4 text-zinc-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <line x1="23" y1="9" x2="17" y2="15"></line>
+                            <line x1="17" y1="9" x2="23" y2="15"></line>
+                          </svg>
+                          <svg id="hero-unmuted-icon" class="hidden h-4 w-4 text-neon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                          </svg>
+                          <span id="hero-mute-label">Zvuk</span>
+                        </button>
+                      </div>
+
+                      <button
+                        type="button"
+                        id="hero-speed-toggle"
+                        title="Zpomalit video pro analýzu techniky"
+                        class="rounded-lg border border-neon/40 bg-neon/15 px-2.5 py-1.5 text-xs font-bold text-[#ff6b00] transition hover:bg-neon hover:text-white">
+                        1.0× Rychlost
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         HLAVNÍ SEKTOR: VIDEO KNIHOVNA TECHNIKY A TRÉNINKŮ (DOMINANTA WEBU)
+         ========================================== -->
+    <section id="video-knihovna" class="relative scroll-mt-20 border-y border-white/10 bg-[#0e0e12] py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header & Party Filter Controls -->
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-2xl">
+            <div class="inline-flex items-center gap-2 rounded-md bg-neon/15 px-3 py-1 text-xs font-extrabold uppercase tracking-widest text-neon">
+              <span>DOMINANTA TRÉNINKU • REELS KNIHOVNA CVIKŮ</span>
+            </div>
+            <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+              Video knihovna techniky a tréninků
+            </h2>
+            <p class="mt-3 text-base sm:text-lg text-zinc-400">
+              Rozklikni si libovolnou kartu, zpomal si pohyb na <span class="font-semibold text-white">0.5× Slow-Mo</span> a podívej se, na co přesně u klientů dohlížím při každé sérii.
+            </p>
+          </div>
+
+          <!-- Filter Pills by Body Part -->
+          <div class="flex flex-wrap items-center gap-2" role="toolbar" aria-label="Filtrovat ukázky podle partie">
+            <button type="button" data-filter="all" class="filter-btn rounded-xl bg-neon px-4 py-2.5 text-xs sm:text-sm font-bold text-white shadow-neon transition">
+              Všechny ukázky (4)
+            </button>
+            <button type="button" data-filter="Nohy" class="filter-btn rounded-xl border border-white/10 bg-graphite px-4 py-2.5 text-xs sm:text-sm font-semibold text-zinc-300 hover:border-neon/50 hover:text-white transition">
+              Nohy
+            </button>
+            <button type="button" data-filter="Záda" class="filter-btn rounded-xl border border-white/10 bg-graphite px-4 py-2.5 text-xs sm:text-sm font-semibold text-zinc-300 hover:border-neon/50 hover:text-white transition">
+              Záda
+            </button>
+            <button type="button" data-filter="Hrudník" class="filter-btn rounded-xl border border-white/10 bg-graphite px-4 py-2.5 text-xs sm:text-sm font-semibold text-zinc-300 hover:border-neon/50 hover:text-white transition">
+              Hrudník &amp; Ramena
+            </button>
+          </div>
+        </div>
+
+        <!-- INTERACTIVE REELS CAROUSEL / GRID -->
+        <div class="carousel mt-10 relative" aria-roledescription="carousel" aria-label="Video knihovna techniky a tréninků">
+          
+          <!-- Mobile / Tablet Previous & Next Controls (before track in DOM order per modern-web-guidance) -->
+          <div class="carousel-controls mb-4 flex items-center justify-between lg:hidden">
+            <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Posuň pro další video →</span>
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                data-direction="previous"
+                aria-label="Předchozí video karta"
+                class="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-graphite text-white transition hover:border-neon hover:text-neon focus-visible:outline focus-visible:outline-2 focus-visible:outline-neon">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button
+                type="button"
+                data-direction="next"
+                aria-label="Další video karta"
+                class="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-graphite text-white transition hover:border-neon hover:text-neon focus-visible:outline focus-visible:outline-2 focus-visible:outline-neon">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Track -->
+          <div id="reels-track" class="carousel-track" tabindex="0" role="group" aria-label="Karty video ukázek">
+
+            <!-- ==========================================
+                 KARTA 1: Dřep & Stabilita nohou
+                 ========================================== -->
+            <article
+              role="group"
+              aria-roledescription="slide"
+              aria-label="1 ze 4: Dřep a Stabilita nohou"
+              data-marker-name="Přejít na kartu 1: Dřep a Stabilita nohou"
+              data-party="Nohy"
+              data-card-index="0"
+              class="reel-slide group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-graphite shadow-card transition duration-300 hover:-translate-y-1 hover:border-neon/60">
+              
+              <!-- 9:16 Video Container -->
+              <div class="aspect-reel relative w-full overflow-hidden bg-black">
+                <video
+                  class="reel-card-video h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  src="assets/video-landmine.mp4#t=9,12.5"
+                  data-src="assets/video-landmine.mp4"
+                  data-start="9.0"
+                  data-end="12.5"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata">
+                </video>
+
+                <!-- Gradient Overlay -->
+                <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-graphite via-black/35 to-black/60"></div>
+
+                <!-- Top Badges: Party Tag + "Korekce techniky" Badge -->
+                <div class="absolute top-3.5 inset-x-3.5 z-10 flex items-center justify-between gap-2">
+                  <span class="inline-flex items-center gap-1.5 rounded-lg bg-obsidian/90 border border-neon/50 px-2.5 py-1 text-xs font-extrabold uppercase tracking-wider text-neon backdrop-blur-md">
+                    <span class="h-1.5 w-1.5 rounded-full bg-neon"></span>
+                    Nohy
+                  </span>
+                  <span class="inline-flex items-center gap-1 rounded-lg bg-neon px-2.5 py-1 text-[11px] font-bold text-white shadow-neon">
+                    <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Korekce techniky
+                  </span>
+                </div>
+
+                <!-- Center Play / Expand Floating Action Button -->
+                <button
+                  type="button"
+                  data-open-modal="0"
+                  aria-label="Spustit a zvětšit video: Dřep a Stabilita nohou"
+                  class="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/15 opacity-95 transition group-hover:bg-black/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-neon">
+                  <span class="flex h-16 w-16 items-center justify-center rounded-full bg-neon/95 text-white shadow-neon-lg transition duration-300 group-hover:scale-110">
+                    <svg class="h-7 w-7 translate-x-0.5 fill-current" viewBox="0 0 24 24">
+                      <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                    </svg>
+                  </span>
+                  <span class="mt-2.5 rounded-full bg-obsidian/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white border border-white/15">
+                    Spustit rozbor (9:16)
+                  </span>
+                </button>
+
+                <!-- Bottom Overlay Info inside 9:16 frame -->
+                <div class="pointer-events-none absolute bottom-3 inset-x-3.5 z-10">
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-[#ff6b00]">Biomechanika dolních končetin</span>
+                  <h3 class="mt-0.5 font-display text-xl font-extrabold text-white leading-tight">
+                    Dřep &amp; Stabilita nohou
+                  </h3>
+                </div>
+              </div>
+
+              <!-- Card Details & Key Mistakes Breakdown -->
+              <div class="flex flex-1 flex-col justify-between p-4 sm:p-5 bg-graphite">
+                <div>
+                  <div class="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">
+                    Klíčové chyby, které na tréninku řešíme:
+                  </div>
+                  <ul class="space-y-2 text-xs sm:text-sm text-zinc-300">
+                    <li class="flex items-start gap-2">
+                      <span class="mt-0.5 text-neon font-bold">✕</span>
+                      <span><strong class="text-white">Kolena dovnitř (valgus):</strong> Učíme aktivní oporu o chodidlo a vnější rotaci v kyčli.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="mt-0.5 text-neon font-bold">✕</span>
+                      <span><strong class="text-white">Nedostatečná hloubka:</strong> Práce s mobilitou kotníků a kyčlí bez podsazování pánve (butt wink).</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="mt-0.5 text-neon font-bold">✓</span>
+                      <span><strong class="text-white">Dýchání do břicha (Bracing):</strong> 360° nitrobřišní tlak pro pevnou oporu beder.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    data-preview-card="0"
+                    class="preview-toggle-btn inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-obsidian px-3 py-2 text-xs font-semibold text-zinc-200 transition hover:border-neon hover:text-white">
+                    <span class="preview-dot h-2 w-2 rounded-full bg-neon"></span>
+                    <span class="preview-label">Náhled v kartě</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    data-open-modal="0"
+                    class="inline-flex items-center gap-1.5 rounded-lg bg-neon/15 border border-neon/40 px-3.5 py-2 text-xs font-bold text-[#ff6b00] transition hover:bg-neon hover:text-white">
+                    <span>Zvětšit video</span>
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <polyline points="9 21 3 21 3 15"></polyline>
+                      <line x1="21" y1="3" x2="14" y2="10"></line>
+                      <line x1="3" y1="21" x2="10" y2="14"></line>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- ==========================================
+                 KARTA 2: Mrtvý tah & Zapojení zad
+                 ========================================== -->
+            <article
+              role="group"
+              aria-roledescription="slide"
+              aria-label="2 ze 4: Mrtvý tah a Zapojení zad"
+              data-marker-name="Přejít na kartu 2: Mrtvý tah a Zapojení zad"
+              data-party="Záda"
+              data-card-index="1"
+              class="reel-slide group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-graphite shadow-card transition duration-300 hover:-translate-y-1 hover:border-neon/60">
+              
+              <!-- 9:16 Video Container -->
+              <div class="aspect-reel relative w-full overflow-hidden bg-black">
+                <video
+                  class="reel-card-video h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  src="assets/video-landmine.mp4#t=18.5,22.2"
+                  data-src="assets/video-landmine.mp4"
+                  data-start="18.5"
+                  data-end="22.2"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata">
+                </video>
+
+                <!-- Gradient Overlay -->
+                <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-graphite via-black/35 to-black/60"></div>
+
+                <!-- Top Badges: Party Tag + "Korekce techniky" Badge -->
+                <div class="absolute top-3.5 inset-x-3.5 z-10 flex items-center justify-between gap-2">
+                  <span class="inline-flex items-center gap-1.5 rounded-lg bg-obsidian/90 border border-neon/50 px-2.5 py-1 text-xs font-extrabold uppercase tracking-wider text-neon backdrop-blur-md">
+                    <span class="h-1.5 w-1.5 rounded-full bg-neon"></span>
+                    Záda
+                  </span>
+                  <span class="inline-flex items-center gap-1 rounded-lg bg-neon px-2.5 py-1 text-[11px] font-bold text-white shadow-neon">
+                    <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Korekce techniky
+                  </span>
+                </div>
+
+                <!-- Center Play / Expand Floating Action Button -->
+                <button
+                  type="button"
+                  data-open-modal="1"
+                  aria-label="Spustit a zvětšit video: Mrtvý tah a Zapojení zad"
+                  class="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/15 opacity-95 transition group-hover:bg-black/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-neon">
+                  <span class="flex h-16 w-16 items-center justify-center rounded-full bg-neon/95 text-white shadow-neon-lg transition duration-300 group-hover:scale-110">
+                    <svg class="h-7 w-7 translate-x-0.5 fill-current" viewBox="0 0 24 24">
+                      <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                    </svg>
+                  </span>
+                  <span class="mt-2.5 rounded-full bg-obsidian/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white border border-white/15">
+                    Spustit rozbor (9:16)
+                  </span>
+                </button>
+
+                <!-- Bottom Overlay Info inside 9:16 frame -->
+                <div class="pointer-events-none absolute bottom-3 inset-x-3.5 z-10">
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-[#ff6b00]">Hip-Hinge &amp; Zadní řetězec</span>
+                  <h3 class="mt-0.5 font-display text-xl font-extrabold text-white leading-tight">
+                    Mrtvý tah &amp; Zapojení zad
+                  </h3>
+                </div>
+              </div>
+
+              <!-- Card Details -->
+              <div class="flex flex-1 flex-col justify-between p-4 sm:p-5 bg-graphite">
+                <div>
+                  <div class="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">
+                    Technické pilíře provedení:
+                  </div>
+                  <ul class="space-y-2 text-xs sm:text-sm text-zinc-300">
+                    <li class="flex items-start gap-2">
+                      <span class="mt-0.5 text-neon font-bold">✓</span>
+                      <span><strong class="text-white">Aktivace mezilopatkových svalů:</strong> Uzamčení širokého svalu zádového („zlomení osy“) před odlepením váhy.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="mt-0.5 text-neon font-bold">✓</span>
+                      <span><strong class="text-white">Neutrální páteř:</strong> Rovnoměrný přenos síly přes kyčelní kloub bez přetěžování bederních plotének.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="mt-0.5 text-neon font-bold">✕</span>
+                      <span><strong class="text-white">Konec tahání kulatými zády:</strong> Čistá koordinace kyčlí a kolen v jedné plynulé dráze.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    data-preview-card="1"
+                    class="preview-toggle-btn inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-obsidian px-3 py-2 text-xs font-semibold text-zinc-200 transition hover:border-neon hover:text-white">
+                    <span class="preview-dot h-2 w-2 rounded-full bg-neon"></span>
+                    <span class="preview-label">Náhled v kartě</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    data-open-modal="1"
+                    class="inline-flex items-center gap-1.5 rounded-lg bg-neon/15 border border-neon/40 px-3.5 py-2 text-xs font-bold text-[#ff6b00] transition hover:bg-neon hover:text-white">
+                    <span>Zvětšit video</span>
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <polyline points="9 21 3 21 3 15"></polyline>
+                      <line x1="21" y1="3" x2="14" y2="10"></line>
+                      <line x1="3" y1="21" x2="10" y2="14"></line>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- ==========================================
+                 KARTA 3: Tlakové cviky & Ramena
+                 ========================================== -->
+            <article
+              role="group"
+              aria-roledescription="slide"
+              aria-label="3 ze 4: Tlakové cviky a Ramena"
+              data-marker-name="Přejít na kartu 3: Tlakové cviky a Ramena"
+              data-party="Hrudník"
+              data-card-index="2"
+              class="reel-slide group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-graphite shadow-card transition duration-300 hover:-translate-y-1 hover:border-neon/60">
+              
+              <!-- 9:16 Video Container -->
+              <div class="aspect-reel relative w-full overflow-hidden bg-black">
+                <video
+                  class="reel-card-video h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  src="assets/video-landmine.mp4#t=12.3,16.0"
+                  data-src="assets/video-landmine.mp4"
+                  data-start="12.3"
+                  data-end="16.0"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata">
+                </video>
+
+                <!-- Gradient Overlay -->
+                <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-graphite via-black/35 to-black/60"></div>
+
+                <!-- Top Badges: Party Tag + "Korekce techniky" Badge -->
+                <div class="absolute top-3.5 inset-x-3.5 z-10 flex items-center justify-between gap-2">
+                  <span class="inline-flex items-center gap-1.5 rounded-lg bg-obsidian/90 border border-neon/50 px-2.5 py-1 text-xs font-extrabold uppercase tracking-wider text-neon backdrop-blur-md">
+                    <span class="h-1.5 w-1.5 rounded-full bg-neon"></span>
+                    Hrudník
+                  </span>
+                  <span class="inline-flex items-center gap-1 rounded-lg bg-neon px-2.5 py-1 text-[11px] font-bold text-white shadow-neon">
+                    <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Korekce techniky
+                  </span>
+                </div>
+
+                <!-- Center Play / Expand Floating Action Button -->
+                <button
+                  type="button"
+                  data-open-modal="2"
+                  aria-label="Spustit a zvětšit video: Tlakové cviky a Ramena"
+                  class="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/15 opacity-95 transition group-hover:bg-black/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-neon">
+                  <span class="flex h-16 w-16 items-center justify-center rounded-full bg-neon/95 text-white shadow-neon-lg transition duration-300 group-hover:scale-110">
+                    <svg class="h-7 w-7 translate-x-0.5 fill-current" viewBox="0 0 24 24">
+                      <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                    </svg>
+                  </span>
+                  <span class="mt-2.5 rounded-full bg-obsidian/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white border border-white/15">
+                    Spustit rozbor (9:16)
+                  </span>
+                </button>
+
+                <!-- Bottom Overlay Info inside 9:16 frame -->
+                <div class="pointer-events-none absolute bottom-3 inset-x-3.5 z-10">
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-[#ff6b00]">Tlaková mechanika &amp; Klouby</span>
+                  <h3 class="mt-0.5 font-display text-xl font-extrabold text-white leading-tight">
+                    Tlakové cviky &amp; Ramena
+                  </h3>
+                </div>
+              </div>
+
+              <!-- Card Details -->
+              <div class="flex flex-1 flex-col justify-between p-4 sm:p-5 bg-graphite">
+                <div>
+                  <div class="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">
+                    Bezpečný tlak bez bolesti ramen:
+                  </div>
+                  <ul class="space-y-2 text-xs sm:text-sm text-zinc-300">
+                    <li class="flex items-start gap-2">
+                      <span class="mt-0.5 text-neon font-bold">✓</span>
+                      <span><strong class="text-white">Správná dráha pohybu:</strong> Vedení lokte ve skapulární rovině (cca 30–45°), ne kolmo do stran.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="mt-0.5 text-neon font-bold">✓</span>
+                      <span><strong class="text-white">Bezpečnost rotátorové manžety:</strong> Centrace hlavice ramenního kloubu a volný pohyb lopatky.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="mt-0.5 text-neon font-bold">✓</span>
+                      <span><strong class="text-white">Přenos síly ze země:</strong> Pevné opření chodidel a propojení hrudníku s pánví bez prohýbání v bedrech.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    data-preview-card="2"
+                    class="preview-toggle-btn inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-obsidian px-3 py-2 text-xs font-semibold text-zinc-200 transition hover:border-neon hover:text-white">
+                    <span class="preview-dot h-2 w-2 rounded-full bg-neon"></span>
+                    <span class="preview-label">Náhled v kartě</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    data-open-modal="2"
+                    class="inline-flex items-center gap-1.5 rounded-lg bg-neon/15 border border-neon/40 px-3.5 py-2 text-xs font-bold text-[#ff6b00] transition hover:bg-neon hover:text-white">
+                    <span>Zvětšit video</span>
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <polyline points="9 21 3 21 3 15"></polyline>
+                      <line x1="21" y1="3" x2="14" y2="10"></line>
+                      <line x1="3" y1="21" x2="10" y2="14"></line>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- ==========================================
+                 KARTA 4: Práce s klientem na tréninku
+                 ========================================== -->
+            <article
+              role="group"
+              aria-roledescription="slide"
+              aria-label="4 ze 4: Práce s klientem na tréninku"
+              data-marker-name="Přejít na kartu 4: Práce s klientem na tréninku"
+              data-party="Nohy Záda Hrudník"
+              data-card-index="3"
+              class="reel-slide group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-graphite shadow-card transition duration-300 hover:-translate-y-1 hover:border-neon/60">
+              
+              <!-- 9:16 Video Container -->
+              <div class="aspect-reel relative w-full overflow-hidden bg-black">
+                <video
+                  class="reel-card-video h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  src="assets/video-core.mp4"
+                  data-src="assets/video-core.mp4"
+                  data-start="0"
+                  data-end="23"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata">
+                </video>
+
+                <!-- Gradient Overlay -->
+                <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-graphite via-black/35 to-black/60"></div>
+
+                <!-- Top Badges: Party Tag + "Korekce techniky" Badge -->
+                <div class="absolute top-3.5 inset-x-3.5 z-10 flex items-center justify-between gap-2">
+                  <span class="inline-flex items-center gap-1.5 rounded-lg bg-obsidian/90 border border-neon/50 px-2.5 py-1 text-xs font-extrabold uppercase tracking-wider text-neon backdrop-blur-md">
+                    <span class="h-1.5 w-1.5 rounded-full bg-neon"></span>
+                    Nohy / Záda / Hrudník
+                  </span>
+                  <span class="inline-flex items-center gap-1 rounded-lg bg-neon px-2.5 py-1 text-[11px] font-bold text-white shadow-neon">
+                    <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Korekce techniky
+                  </span>
+                </div>
+
+                <!-- Center Play / Expand Floating Action Button -->
+                <button
+                  type="button"
+                  data-open-modal="3"
+                  aria-label="Spustit a zvětšit video: Práce s klientem na tréninku"
+                  class="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/15 opacity-95 transition group-hover:bg-black/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-neon">
+                  <span class="flex h-16 w-16 items-center justify-center rounded-full bg-neon/95 text-white shadow-neon-lg transition duration-300 group-hover:scale-110">
+                    <svg class="h-7 w-7 translate-x-0.5 fill-current" viewBox="0 0 24 24">
+                      <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                    </svg>
+                  </span>
+                  <span class="mt-2.5 rounded-full bg-obsidian/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white border border-white/15">
+                    Spustit rozbor (9:16)
+                  </span>
+                </button>
+
+                <!-- Bottom Overlay Info inside 9:16 frame -->
+                <div class="pointer-events-none absolute bottom-3 inset-x-3.5 z-10">
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-[#ff6b00]">Coaching &amp; Core Stabilita</span>
+                  <h3 class="mt-0.5 font-display text-xl font-extrabold text-white leading-tight">
+                    Práce s klientem na tréninku
+                  </h3>
+                </div>
+              </div>
+
+              <!-- Card Details -->
+              <div class="flex flex-1 flex-col justify-between p-4 sm:p-5 bg-graphite">
+                <div>
+                  <div class="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">
+                    Jak probíhá reálná korekce v praxi:
+                  </div>
+                  <ul class="space-y-2 text-xs sm:text-sm text-zinc-300">
+                    <li class="flex items-start gap-2">
+                      <span class="mt-0.5 text-neon font-bold">✓</span>
+                      <span><strong class="text-white">Okamžitá zpětná vazba:</strong> Korekce pozice pánve, hrudního koše a lopatek přímo v průběhu série.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="mt-0.5 text-neon font-bold">✓</span>
+                      <span><strong class="text-white">Anti-rotační kontrola:</strong> Schopnost udržet zpevněný střed těla i pod nestabilním zatížením.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="mt-0.5 text-neon font-bold">✓</span>
+                      <span><strong class="text-white">Vědomý pohyb:</strong> Pochopíš, který sval má pracovat a proč – žádné slepé počítání opakování.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    data-preview-card="3"
+                    class="preview-toggle-btn inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-obsidian px-3 py-2 text-xs font-semibold text-zinc-200 transition hover:border-neon hover:text-white">
+                    <span class="preview-dot h-2 w-2 rounded-full bg-neon"></span>
+                    <span class="preview-label">Náhled v kartě</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    data-open-modal="3"
+                    class="inline-flex items-center gap-1.5 rounded-lg bg-neon/15 border border-neon/40 px-3.5 py-2 text-xs font-bold text-[#ff6b00] transition hover:bg-neon hover:text-white">
+                    <span>Zvětšit video</span>
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <polyline points="9 21 3 21 3 15"></polyline>
+                      <line x1="21" y1="3" x2="14" y2="10"></line>
+                      <line x1="3" y1="21" x2="10" y2="14"></line>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Visually hidden polite status region for screen readers (modern-web-guidance: carousel) -->
+          <p id="carousel-status" class="visually-hidden" role="status" aria-live="polite"></p>
+
+          <!-- Carousel Markers (Mobile/Tablet) -->
+          <nav id="carousel-markers" class="carousel-markers mt-6 flex items-center justify-center gap-2.5 lg:hidden" aria-label="Výběr video karty"></nav>
+        </div>
+
+        <!-- STATEMENT QUOTE BLOCK UNDER VIDEOS (Required by prompt) -->
+        <div class="mt-12 sm:mt-16 relative overflow-hidden rounded-2xl border border-neon/40 bg-gradient-to-r from-graphite via-[#1a1412] to-graphite p-6 sm:p-10 shadow-neon">
+          <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+            <div class="flex items-start gap-4 sm:gap-5">
+              <div class="hidden sm:flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-neon text-white shadow-neon">
+                <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                  <path d="M2 17l10 5 10-5"></path>
+                  <path d="M2 12l10 5 10-5"></path>
+                </svg>
+              </div>
+              <blockquote>
+                <p class="font-display text-xl sm:text-2xl lg:text-3xl font-extrabold text-white leading-snug">
+                  „Každý cvik má svůj smysl. Naučím tě tělo ovládat, ne ho ničit špatným provedením.“
+                </p>
+                <footer class="mt-2 text-xs sm:text-sm font-semibold uppercase tracking-widest text-neon">
+                  — @littas16_coach • Osobní fitness trenér
+                </footer>
+              </blockquote>
+            </div>
+
+            <a href="#poptavka"
+               class="w-full md:w-auto shrink-0 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#ff5500] to-[#ff6b00] px-6 py-4 text-sm font-bold text-white shadow-neon transition hover:brightness-110">
+              <span>Chci zkontrolovat techniku</span>
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         FILOZOFIE TRÉNINKU (O MNĚ)
+         ========================================== -->
+    <section id="filozofie" class="scroll-mt-20 py-16 sm:py-24 bg-obsidian">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid items-center gap-12 lg:grid-cols-12">
+          
+          <!-- Trainer Portrait Column -->
+          <div class="lg:col-span-5">
+            <div class="relative mx-auto max-w-md">
+              <div class="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-neon/40 via-transparent to-neon/20 blur-xl"></div>
+              <div class="relative overflow-hidden rounded-3xl border border-white/15 bg-graphite shadow-card">
+                <img
+                  src="assets/coach-portrait.jpg"
+                  alt="Osobní fitness trenér @littas16_coach v posilovně"
+                  class="h-full w-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/20 to-transparent"></div>
+                <div class="absolute bottom-5 inset-x-5 flex items-end justify-between">
+                  <div>
+                    <span class="inline-block rounded-md bg-neon px-2.5 py-0.5 text-[11px] font-extrabold uppercase tracking-wider text-white">
+                      Osobní trenér
+                    </span>
+                    <div class="mt-1 font-display text-2xl font-extrabold text-white">@littas16_coach</div>
+                    <p class="text-xs text-zinc-300">Důraz na biomechaniku, zdravá záda a funkční sílu</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Philosophy Text & 3 Pillars Column -->
+          <div class="lg:col-span-7 space-y-8">
+            <div>
+              <div class="inline-flex items-center gap-2 rounded-md bg-neon/15 px-3 py-1 text-xs font-extrabold uppercase tracking-widest text-neon">
+                <span>FILOZOFIE TRÉNINKU • O MNĚ</span>
+              </div>
+              <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+                Proč stavím techniku na první místo?
+              </h2>
+              <p class="mt-4 text-base sm:text-lg leading-relaxed text-zinc-300">
+                Většina lidí v posilovně pouze přesouvá váhu z bodu A do bodu B za cenu přetížení kloubů a beder. Můj přístup je opačný: <strong class="text-white">nejdřív tě naučím plnou kontrolu nad pohybem</strong>. Výsledkem je <strong class="text-neon">prevence zranění</strong>, maximální stimul pro <strong class="text-white">svalový růst</strong> a <strong class="text-white">funkční síla pro běžný život</strong>.
+              </p>
+            </div>
+
+            <!-- 3 Core Pillars: Diagnostika pohybu | Nekompromisní technika | Individuální tempo -->
+            <div class="grid gap-4 sm:grid-cols-3">
+              
+              <!-- Bod 1 -->
+              <div class="rounded-2xl border border-white/10 bg-graphite p-5 transition hover:border-neon/50">
+                <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-neon/15 text-neon font-display text-lg font-extrabold border border-neon/30">
+                  01
+                </div>
+                <h3 class="mt-4 font-display text-lg font-bold text-white">
+                  Diagnostika pohybu
+                </h3>
+                <p class="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-400">
+                  Odhalíme zkrácené svaly, asymetrie a pohybové stereotypy dřív, než naložíme činku. Každé tělo má jinou stavbu pánve a kloubů.
+                </p>
+              </div>
+
+              <!-- Bod 2 -->
+              <div class="rounded-2xl border border-neon/40 bg-graphite p-5 shadow-neon transition">
+                <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-neon text-white font-display text-lg font-extrabold">
+                  02
+                </div>
+                <h3 class="mt-4 font-display text-lg font-bold text-white">
+                  Nekompromisní technika
+                </h3>
+                <p class="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-300">
+                  Hlídám dýchání do středu těla, stabilitu lopatek a dráhu každého opakování. Když cílový sval skutečně pracuje, výsledky přicházejí rychleji.
+                </p>
+              </div>
+
+              <!-- Bod 3 -->
+              <div class="rounded-2xl border border-white/10 bg-graphite p-5 transition hover:border-neon/50">
+                <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-neon/15 text-neon font-display text-lg font-extrabold border border-neon/30">
+                  03
+                </div>
+                <h3 class="mt-4 font-display text-lg font-bold text-white">
+                  Individuální tempo
+                </h3>
+                <p class="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-400">
+                  Ať jsi úplný začátečník, vracíš se po zranění, nebo chceš posunout silové limity – zátěž i progresi dávkujeme přesně podle tvých možností.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Extra Value Strip -->
+            <div class="flex flex-wrap items-center gap-6 rounded-2xl border border-white/10 bg-graphite/60 p-4 sm:px-6">
+              <div class="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-zinc-200">
+                <span class="flex h-6 w-6 items-center justify-center rounded-full bg-neon/20 text-neon">✓</span>
+                Prevence zranění a bolestí zad
+              </div>
+              <div class="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-zinc-200">
+                <span class="flex h-6 w-6 items-center justify-center rounded-full bg-neon/20 text-neon">✓</span>
+                Maximalizace svalového růstu
+              </div>
+              <div class="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-zinc-200">
+                <span class="flex h-6 w-6 items-center justify-center rounded-full bg-neon/20 text-neon">✓</span>
+                Funkční síla pro běžný život
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TRÉNINKOVÉ MOŽNOSTI & BALÍČKY
+         ========================================== -->
+    <section id="sluzby" class="scroll-mt-20 border-t border-white/10 bg-[#0e0e12] py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto">
+          <div class="inline-flex items-center gap-2 rounded-md bg-neon/15 px-3 py-1 text-xs font-extrabold uppercase tracking-widest text-neon">
+            <span>SPOLUPRÁCE • VYBER SI SVŮJ FORMÁT</span>
+          </div>
+          <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+            Tréninkové možnosti &amp; Balíčky
+          </h2>
+          <p class="mt-3 text-base sm:text-lg text-zinc-400">
+            Vyber si formu spolupráce, která ti sedí nejvíc – od intenzivního osobního vedení 1 na 1 až po detailní diagnostiku tvé techniky.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+          
+          <!-- Balíček 1: Osobní trénink 1 na 1 -->
+          <div class="relative flex flex-col justify-between rounded-2xl border-2 border-neon bg-graphite p-6 sm:p-8 shadow-neon">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="rounded-lg bg-neon px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-white">
+                  Nejžádanější
+                </span>
+                <span class="text-xs font-semibold text-zinc-400">Přímo v posilovně</span>
+              </div>
+
+              <h3 class="mt-5 font-display text-2xl font-extrabold text-white">
+                Osobní trénink 1 na 1
+              </h3>
+              <p class="mt-2.5 text-sm leading-relaxed text-zinc-300">
+                Detailní dohled nad každým opakováním, nastavení vah a techniky přímo na place. Okamžitá korekce v reálném čase.
+              </p>
+
+              <ul class="mt-6 space-y-3 border-t border-white/10 pt-6 text-sm text-zinc-200">
+                <li class="flex items-center gap-2.5">
+                  <span class="text-neon font-bold">✓</span>
+                  <span>100% pozornost u každé pracovní série</span>
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-neon font-bold">✓</span>
+                  <span>Přesné nastavení pák, úchopů a dýchání</span>
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-neon font-bold">✓</span>
+                  <span>Systematický progres síly a postavy</span>
+                </li>
+              </ul>
+            </div>
+
+            <a href="#poptavka"
+               data-select-goal="Nárůst svalů a síly"
+               class="service-select-btn mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#ff5500] to-[#ff6b00] px-5 py-3.5 text-sm font-bold text-white shadow-neon transition hover:brightness-110">
+              <span>Chci osobní trénink 1 na 1</span>
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Balíček 2: Tréninkový plán s video ukázkami -->
+          <div class="relative flex flex-col justify-between rounded-2xl border border-white/10 bg-graphite p-6 sm:p-8 transition hover:border-neon/50">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="rounded-lg bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-zinc-200">
+                  Samostatný trénink
+                </span>
+                <span class="text-xs font-semibold text-zinc-400">Online + Video odkazy</span>
+              </div>
+
+              <h3 class="mt-5 font-display text-2xl font-extrabold text-white">
+                Tréninkový plán s video ukázkami
+              </h3>
+              <p class="mt-2.5 text-sm leading-relaxed text-zinc-300">
+                Rozpis tréninků na míru včetně přesných odkazů na provedení cviků, abys v posilovně nikdy netápal.
+              </p>
+
+              <ul class="mt-6 space-y-3 border-t border-white/10 pt-6 text-sm text-zinc-200">
+                <li class="flex items-center gap-2.5">
+                  <span class="text-neon font-bold">✓</span>
+                  <span>Strukturovaný plán dle tvých cílů a časových možností</span>
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-neon font-bold">✓</span>
+                  <span>Přesné video ukázky techniky ke každému cviku</span>
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-neon font-bold">✓</span>
+                  <span>Kontrola natočených videí z tvého tréninku</span>
+                </li>
+              </ul>
+            </div>
+
+            <a href="#poptavka"
+               data-select-goal="Naučit se techniku od nuly"
+               class="service-select-btn mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-neon/50 bg-neon/10 px-5 py-3.5 text-sm font-bold text-[#ff6b00] transition hover:bg-neon hover:text-white">
+              <span>Poptat plán s video ukázkami</span>
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Balíček 3: Konzultace a diagnostika techniky -->
+          <div class="relative flex flex-col justify-between rounded-2xl border border-white/10 bg-graphite p-6 sm:p-8 transition hover:border-neon/50">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="rounded-lg bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-zinc-200">
+                  Stop bolesti
+                </span>
+                <span class="text-xs font-semibold text-zinc-400">Analýza &amp; Korekce</span>
+              </div>
+
+              <h3 class="mt-5 font-display text-2xl font-extrabold text-white">
+                Konzultace a diagnostika techniky
+              </h3>
+              <p class="mt-2.5 text-sm leading-relaxed text-zinc-300">
+                Kontrola stávajících zvyků a odstranění bolestí při cvičení. Ideální, pokud cvičíš sám, ale stagnuješ nebo tě limitují záda či ramena.
+              </p>
+
+              <ul class="mt-6 space-y-3 border-t border-white/10 pt-6 text-sm text-zinc-200">
+                <li class="flex items-center gap-2.5">
+                  <span class="text-neon font-bold">✓</span>
+                  <span>Kompletní rozbor dřepu, mrtvého tahu a tlaků</span>
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-neon font-bold">✓</span>
+                  <span>Odhalení příčin přetížení beder, kolen či ramen</span>
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-neon font-bold">✓</span>
+                  <span>Konkrétní kompenzační a aktivační drily</span>
+                </li>
+              </ul>
+            </div>
+
+            <a href="#poptavka"
+               data-select-goal="Odstranit bolest při cvicích"
+               class="service-select-btn mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-neon/50 bg-neon/10 px-5 py-3.5 text-sm font-bold text-[#ff6b00] transition hover:bg-neon hover:text-white">
+              <span>Objednat diagnostiku techniky</span>
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         POPTÁVKOVÝ FORMULÁŘ
+         ========================================== -->
+    <section id="poptavka" class="scroll-mt-20 py-16 sm:py-24 bg-obsidian relative overflow-hidden">
+      <div class="pointer-events-none absolute bottom-0 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-neon/10 blur-[140px]"></div>
+
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="rounded-3xl border border-white/15 bg-graphite p-6 sm:p-10 lg:p-12 shadow-card">
+          
+          <div class="text-center">
+            <span class="inline-flex items-center gap-2 rounded-md bg-neon/15 px-3 py-1 text-xs font-extrabold uppercase tracking-widest text-neon">
+              <span>ZAČNI TRÉNOVAT CHYTŘE</span>
+            </span>
+            <h2 id="form-heading" class="mt-3 font-display text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+              Chceš cvičit správně a bez zranění? Domluv si trénink.
+            </h2>
+            <p class="mt-2.5 text-sm sm:text-base text-zinc-400">
+              Vyplň krátký formulář níže a ozvu se ti zpět na Instagram nebo telefon s návrhem termínu.
+            </p>
+          </div>
+
+          <form id="coaching-form" aria-labelledby="form-heading" action="#poptavka" method="POST" class="mt-8 space-y-6" novalidate>
+            
+            <!-- Pole 1: Jméno -->
+            <div class="flex flex-col gap-1.5">
+              <label for="client-name" class="text-sm font-semibold text-zinc-200">
+                Jméno <span class="text-neon" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text"
+                id="client-name"
+                name="name"
+                required
+                minlength="2"
+                autocomplete="name"
+                enterkeyhint="next"
+                placeholder="Např. Tomáš Novák"
+                data-error="name-error"
+                class="min-h-[50px] w-full rounded-xl border border-white/15 bg-obsidian px-4 py-3 text-base text-white placeholder-zinc-500 transition focus:border-neon focus:outline-none focus-visible:ring-2 focus-visible:ring-neon"
+              />
+              <div id="name-error" class="error-msg">
+                <span role="img" aria-label="Chyba">⚠️</span> Prosím vyplň své jméno (alespoň 2 znaky).
+              </div>
+            </div>
+
+            <!-- Pole 2: Instagram / Telefon -->
+            <div class="flex flex-col gap-1.5">
+              <label for="client-contact" class="text-sm font-semibold text-zinc-200">
+                Instagram / Telefon <span class="text-neon" aria-hidden="true">*</span>
+              </label>
+              <span id="contact-hint" class="text-xs text-zinc-400">
+                Uveď svůj @instagram nick nebo telefonní číslo, kam ti napíšu.
+              </span>
+              <input
+                type="text"
+                id="client-contact"
+                name="contact"
+                required
+                minlength="3"
+                autocorrect="off"
+                autocapitalize="none"
+                spellcheck="false"
+                enterkeyhint="next"
+                aria-describedby="contact-hint"
+                data-error="contact-error"
+                placeholder="Např. @tomas_fit nebo +420 777 123 456"
+                class="min-h-[50px] w-full rounded-xl border border-white/15 bg-obsidian px-4 py-3 text-base text-white placeholder-zinc-500 transition focus:border-neon focus:outline-none focus-visible:ring-2 focus-visible:ring-neon"
+              />
+              <div id="contact-error" class="error-msg">
+                <span role="img" aria-label="Chyba">⚠️</span> Prosím uveď svůj Instagram nick nebo telefonní číslo.
+              </div>
+            </div>
+
+            <!-- Pole 3: S čím potřebuješ pomoct -->
+            <div class="flex flex-col gap-1.5">
+              <label for="client-goal" class="text-sm font-semibold text-zinc-200">
+                S čím potřebuješ pomoct <span class="text-neon" aria-hidden="true">*</span>
+              </label>
+              <div class="relative">
+                <select
+                  id="client-goal"
+                  name="goal"
+                  required
+                  data-error="goal-error"
+                  class="min-h-[50px] w-full appearance-none rounded-xl border border-white/15 bg-obsidian px-4 py-3 pr-10 text-base text-white transition focus:border-neon focus:outline-none focus-visible:ring-2 focus-visible:ring-neon">
+                  <option value="" disabled selected>— Vyber hlavní cíl spolupráce —</option>
+                  <option value="Naučit se techniku od nuly">Naučit se techniku od nuly</option>
+                  <option value="Odstranit bolest při cvicích">Odstranit bolest při cvicích</option>
+                  <option value="Nárůst svalů a síly">Nárůst svalů a síly</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-neon">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div id="goal-error" class="error-msg">
+                <span role="img" aria-label="Chyba">⚠️</span> Vyber prosím, s čím potřebuješ pomoct.
+              </div>
+            </div>
+
+            <!-- Pole 4: Zpráva -->
+            <div class="flex flex-col gap-1.5">
+              <label for="client-message" class="text-sm font-semibold text-zinc-200">
+                Zpráva <span class="text-xs font-normal text-zinc-400">(jaké máš zkušenosti, případná omezení nebo časy)</span>
+              </label>
+              <textarea
+                id="client-message"
+                name="message"
+                rows="4"
+                placeholder="Napiš mi stručně, jak dlouho cvičíš, s jakými cviky bojuješ nebo jaké dny ti vyhovují..."
+                class="w-full rounded-xl border border-white/15 bg-obsidian p-4 text-base text-white placeholder-zinc-500 transition focus:border-neon focus:outline-none focus-visible:ring-2 focus-visible:ring-neon"
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              id="submit-btn"
+              class="flex min-h-[56px] w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-[#ff5500] to-[#ff6b00] px-8 py-4 text-base font-extrabold uppercase tracking-wider text-white shadow-neon transition duration-200 hover:shadow-neon-lg hover:brightness-110 active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neon">
+              <span>Odeslat poptávku</span>
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+
+            <!-- Form Submission Status Region -->
+            <div id="form-status" role="status" aria-live="polite" class="hidden rounded-2xl border border-emerald-500/40 bg-emerald-500/10 p-4 text-sm text-emerald-200"></div>
+          </form>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="border-t border-white/10 bg-[#08080a] py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
+        
+        <div class="flex items-center gap-3.5">
+          <img src="assets/coach-portrait.jpg" alt="@littas16_coach" class="h-12 w-12 rounded-xl border border-neon/50 object-cover object-top" />
+          <div>
+            <div class="font-display text-xl font-extrabold text-white">@littas16<span class="text-neon">_coach</span></div>
+            <p class="text-xs text-zinc-400">Osobní fitness trenér • Posilovna &amp; Silově-kondiční trénink (ČR)</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="https://www.instagram.com/littas16_coach/" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 rounded-xl border border-neon/40 bg-graphite px-4 py-2.5 text-sm font-bold text-white transition hover:bg-neon">
+            <svg class="h-4 w-4 text-neon group-hover:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            <span>Sleduj @littas16_coach na Instagramu</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="mt-8 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+        <p>© 2026 @littas16_coach. Všechna práva vyhrazena. Správná technika. Skutečná síla. Trvalé výsledky.</p>
+        <div class="flex gap-5">
+          <a href="#video-knihovna" class="hover:text-neon transition">Ukázky cviků</a>
+          <a href="#filozofie" class="hover:text-neon transition">Filozofie</a>
+          <a href="#sluzby" class="hover:text-neon transition">Balíčky</a>
+          <a href="#poptavka" class="hover:text-neon transition">Poptávka</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       MODAL VIDEO PLAYER (Native <dialog closedby="any"> per modern-web-guidance)
+       ========================================== -->
+  <dialog
+    id="video-modal"
+    closedby="any"
+    aria-labelledby="modal-video-title"
+    class="m-auto w-[94vw] max-w-4xl rounded-3xl border border-white/15 bg-graphite p-0 text-white shadow-2xl open:flex open:flex-col md:open:flex-row overflow-hidden">
+    
+    <!-- Left / Top: 9:16 Reels Video Player -->
+    <div class="relative w-full md:w-[360px] shrink-0 bg-black aspect-reel mx-auto">
+      <video
+        id="modal-video-el"
+        class="h-full w-full object-cover"
+        src="assets/video-landmine.mp4"
+        playsinline
+        loop
+        controls>
+      </video>
+
+      <div class="pointer-events-none absolute top-3.5 left-3.5 flex items-center gap-2">
+        <span id="modal-party-tag" class="rounded-lg bg-obsidian/90 border border-neon/50 px-2.5 py-1 text-xs font-extrabold uppercase tracking-wider text-neon">
+          Nohy
+        </span>
+        <span class="rounded-lg bg-neon px-2.5 py-1 text-[11px] font-bold text-white">
+          Korekce techniky
+        </span>
+      </div>
+    </div>
+
+    <!-- Right / Bottom: Biomechanical Breakdown & Controls -->
+    <div class="flex flex-1 flex-col justify-between p-6 sm:p-8 bg-graphite">
+      <div>
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-neon">Detailní rozbor cviku</span>
+            <h2 id="modal-video-title" class="mt-1 font-display text-2xl sm:text-3xl font-extrabold text-white">
+              Dřep &amp; Stabilita nohou
+            </h2>
+          </div>
+
+          <form method="dialog">
+            <button
+              type="submit"
+              autofocus
+              aria-label="Zavřít video přehrávač"
+              class="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-obsidian text-zinc-300 transition hover:border-neon hover:text-white">
+              ✕
+            </button>
+          </form>
+        </div>
+
+        <p id="modal-video-desc" class="mt-3 text-sm sm:text-base leading-relaxed text-zinc-300">
+          Kontrola osy kolen, optimální hloubka dřepu bez ztráty neutrální pánve a správné dýchání do břicha pro stabilitu středu těla.
+        </p>
+
+        <!-- Playback Speed Controls for Studying Biomechanics -->
+        <div class="mt-6 rounded-2xl border border-white/10 bg-obsidian p-4">
+          <div class="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2.5">
+            Rychlost přehrávání (pro studium dráhy pohybu):
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" data-modal-speed="0.5" class="modal-speed-btn rounded-lg border border-white/15 bg-graphite px-3.5 py-2 text-xs font-bold text-zinc-300 hover:border-neon hover:text-white transition">
+              0.5× Slow-Mo (Biomechanika)
+            </button>
+            <button type="button" data-modal-speed="0.75" class="modal-speed-btn rounded-lg border border-white/15 bg-graphite px-3.5 py-2 text-xs font-bold text-zinc-300 hover:border-neon hover:text-white transition">
+              0.75× Zpomaleně
+            </button>
+            <button type="button" data-modal-speed="1" class="modal-speed-btn rounded-lg bg-neon px-3.5 py-2 text-xs font-bold text-white transition">
+              1.0× Reálná rychlost
+            </button>
+          </div>
+        </div>
+
+        <!-- Checklist Points -->
+        <div class="mt-6">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3">
+            Na co se u této ukázky zaměřit:
+          </h3>
+          <ul id="modal-checkpoints" class="space-y-2.5 text-sm text-zinc-200"></ul>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-5 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <a href="#poptavka"
+           id="modal-cta-link"
+           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#ff5500] to-[#ff6b00] px-6 py-3.5 text-sm font-bold text-white shadow-neon transition hover:brightness-110">
+          <span>Chci se tento cvik naučit 1 na 1</span>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+          </svg>
+        </a>
+
+        <form method="dialog" class="w-full sm:w-auto">
+          <button type="submit" class="w-full sm:w-auto rounded-xl border border-white/15 bg-obsidian px-5 py-3.5 text-sm font-semibold text-zinc-300 hover:text-white">
+            Zavřít okno
+          </button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ==========================================
+       CLIENT-SIDE INTERACTIVITY MODULE
+       ========================================== -->
+  <script type="module">
+    /* -----------------------------------------------------------
+       1. HERO REELS VIDEO SWITCHER & CONTROLS
+    ----------------------------------------------------------- */
+    const heroVideo = document.getElementById('hero-video');
+    const heroSubtitle = document.getElementById('hero-reel-subtitle');
+    const heroHud1 = document.getElementById('hero-hud-point-1');
+    const heroHud2 = document.getElementById('hero-hud-point-2');
+    const heroPlayToggle = document.getElementById('hero-play-toggle');
+    const heroPauseIcon = document.getElementById('hero-pause-icon');
+    const heroPlayIcon = document.getElementById('hero-play-icon');
+    const heroMuteToggle = document.getElementById('hero-mute-toggle');
+    const heroMutedIcon = document.getElementById('hero-muted-icon');
+    const heroUnmutedIcon = document.getElementById('hero-unmuted-icon');
+    const heroMuteLabel = document.getElementById('hero-mute-label');
+    const heroSpeedToggle = document.getElementById('hero-speed-toggle');
+    const heroClipBtns = document.querySelectorAll('.hero-clip-btn');
+
+    const heroClips = {
+      landmine: {
+        src: 'assets/video-landmine.mp4',
+        subtitle: 'Komplexní trénink s osou (Landmine)',
+        hud1: 'Pevný střed těla & kontrola osy kolen',
+        hud2: 'Neutrální páteř v celém rozsahu pohybu'
+      },
+      core: {
+        src: 'assets/video-core.mp4',
+        subtitle: 'Core & Anti-rotační stabilita trupu',
+        hud1: 'Aktivní opora o lopatky bez prohýbání v bedrech',
+        hud2: '360° nitrobřišní tlak a stabilní pánev'
+      }
+    };
+
+    heroClipBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.heroClip;
+        const clip = heroClips[key];
+        if (!clip) return;
+
+        heroClipBtns.forEach((b) => {
+          b.classList.remove('bg-neon', 'text-white', 'font-bold');
+          b.classList.add('text-zinc-300', 'font-semibold');
+        });
+        btn.classList.add('bg-neon', 'text-white', 'font-bold');
+        btn.classList.remove('text-zinc-300', 'font-semibold');
+
+        heroVideo.src = clip.src;
+        heroVideo.playbackRate = currentHeroSpeed;
+        heroVideo.play().catch(() => {});
+        heroSubtitle.textContent = clip.subtitle;
+        heroHud1.textContent = clip.hud1;
+        heroHud2.textContent = clip.hud2;
+      });
+    });
+
+    heroPlayToggle?.addEventListener('click', () => {
+      if (heroVideo.paused) {
+        heroVideo.play();
+        heroPauseIcon.classList.remove('hidden');
+        heroPlayIcon.classList.add('hidden');
+      } else {
+        heroVideo.pause();
+        heroPauseIcon.classList.add('hidden');
+        heroPlayIcon.classList.remove('hidden');
+      }
+    });
+
+    heroMuteToggle?.addEventListener('click', () => {
+      heroVideo.muted = !heroVideo.muted;
+      if (heroVideo.muted) {
+        heroMutedIcon.classList.remove('hidden');
+        heroUnmutedIcon.classList.add('hidden');
+        heroMuteLabel.textContent = 'Zvuk';
+      } else {
+        heroMutedIcon.classList.add('hidden');
+        heroUnmutedIcon.classList.remove('hidden');
+        heroMuteLabel.textContent = 'Zapnuto';
+      }
+    });
+
+    let currentHeroSpeed = 1.0;
+    heroSpeedToggle?.addEventListener('click', () => {
+      currentHeroSpeed = currentHeroSpeed === 1.0 ? 0.5 : 1.0;
+      heroVideo.playbackRate = currentHeroSpeed;
+      heroSpeedToggle.textContent = currentHeroSpeed === 0.5 ? '0.5× Slow-Mo' : '1.0× Rychlost';
+    });
+
+    /* -----------------------------------------------------------
+       2. REELS CARDS DATA & TIME-SEGMENT LOOPING
+    ----------------------------------------------------------- */
+    const reelCardsData = [
+      {
+        title: 'Dřep & Stabilita nohou',
+        party: 'Nohy',
+        src: 'assets/video-landmine.mp4',
+        start: 9.0,
+        end: 12.5,
+        desc: 'Rozbor správné mechaniky dřepu s osou a výpadu. Zaměřujeme se na odstranění propadání kolen dovnitř (valgozity), bezpečnou hloubku bez podsazení pánve a 360° nitrobřišní tlak.',
+        checkpoints: [
+          'Kolena vedeme plynule ve směru špiček po celou dráhu pohybu.',
+          'Hloubku dřepu diktuje mobilita kyčlí a kotníků – nikdy nejde na úkor kulatých beder.',
+          'Pevný nádech do břicha a boků (bracing) chrání páteř pod zátěží.'
+        ]
+      },
+      {
+        title: 'Mrtvý tah & Zapojení zad',
+        party: 'Záda',
+        src: 'assets/video-landmine.mp4',
+        start: 18.5,
+        end: 22.2,
+        desc: 'Správný hip-hinge (kyčelní ohyb) a zapojení zadního řetězce a středu těla. Učíme se aktivovat mezilopatkové svaly a široký sval zádový, aby práci neodnášela bedra.',
+        checkpoints: [
+          'Vědomé stažení ramen od uší a zapojení mezilopatkových svalů před zahájením tahu.',
+          'Neutrální zakřivení páteře od krční části až po křížovou kost.',
+          'Pohyb vychází z posunu kyčlí vzad, nikoliv z ohýbání v pase.'
+        ]
+      },
+      {
+        title: 'Tlakové cviky & Ramena',
+        party: 'Hrudník',
+        src: 'assets/video-landmine.mp4',
+        start: 12.3,
+        end: 16.0,
+        desc: 'Tlak s osou (Landmine press) představuje jednu z nejšetrnějších a nejefektivnějších variant pro rozvoj hrudníku a ramen s maximální bezpečností pro rotátorovou manžetu.',
+        checkpoints: [
+          'Loket svírá s trupem přirozený úhel cca 30–45° (skapulární rovina).',
+          'Lopatka volně klouže po hrudním koši a stabilizuje ramenní kloub v horní úvrati.',
+          'Žebra zůstávají stažená dolů – tlak nevynucujeme prohnutím v bedrech.'
+        ]
+      },
+      {
+        title: 'Práce s klientem na tréninku',
+        party: 'Nohy / Záda / Hrudník',
+        src: 'assets/video-core.mp4',
+        start: 0,
+        end: 23.0,
+        desc: 'Reálná ukázka drilu na hluboký stabilizační systém (Core) a anti-rotační stabilitu na válci. Přesně takto na tréninku ladíme kontrolu těla v reálném čase.',
+        checkpoints: [
+          'Korekce pozice pánve a hrudníku v každé vteřině cvičení.',
+          'Odstranění kompenzačních pohybů a rotací při zvednutí opěrné ruky.',
+          'Okamžitý přenos pevného středu těla do těžkých dřepů, tahů a tlaků.'
+        ]
+      }
+    ];
+
+    // Keep card videos within their assigned time segments during inline preview
+    const cardVideos = document.querySelectorAll('.reel-card-video');
+    cardVideos.forEach((video, idx) => {
+      const start = parseFloat(video.dataset.start || '0');
+      const end = parseFloat(video.dataset.end || '999');
+
+      video.addEventListener('loadedmetadata', () => {
+        if (start > 0 && video.currentTime < start) {
+          video.currentTime = start;
+        }
+      });
+
+      video.addEventListener('timeupdate', () => {
+        if (video.currentTime >= end || video.currentTime < start - 0.5) {
+          video.currentTime = start;
+        }
+      });
+
+      // Play preview on card hover (desktop)
+      const card = video.closest('.reel-slide');
+      card?.addEventListener('pointerenter', () => {
+        video.play().catch(() => {});
+      });
+      card?.addEventListener('pointerleave', () => {
+        video.pause();
+      });
+    });
+
+    // Inline Preview Toggle Buttons (great for mobile touch)
+    document.querySelectorAll('.preview-toggle-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.dataset.previewCard);
+        const video = cardVideos[idx];
+        const label = btn.querySelector('.preview-label');
+        if (!video) return;
+
+        if (video.paused) {
+          cardVideos.forEach((v, i) => {
+            if (i !== idx) v.pause();
+          });
+          video.play().catch(() => {});
+          if (label) label.textContent = 'Pozastavit';
+        } else {
+          video.pause();
+          if (label) label.textContent = 'Náhled v kartě';
+        }
+      });
+    });
+
+    /* -----------------------------------------------------------
+       3. FILTER BY BODY PART
+    ----------------------------------------------------------- */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const slides = document.querySelectorAll('.reel-slide');
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        filterBtns.forEach((b) => {
+          b.classList.remove('bg-neon', 'text-white', 'shadow-neon', 'font-bold');
+          b.classList.add('bg-graphite', 'text-zinc-300', 'border', 'border-white/10');
+        });
+        btn.classList.add('bg-neon', 'text-white', 'shadow-neon', 'font-bold');
+        btn.classList.remove('bg-graphite', 'text-zinc-300');
+
+        slides.forEach((slide) => {
+          const parties = slide.dataset.party || '';
+          if (filter === 'all' || parties.includes(filter)) {
+            slide.classList.remove('hidden');
+          } else {
+            slide.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    /* -----------------------------------------------------------
+       4. MODAL DIALOG LIGHTBOX (modern-web-guidance: dialog & light-dismiss-a-dialog)
+    ----------------------------------------------------------- */
+    const modal = document.getElementById('video-modal');
+    const modalVideo = document.getElementById('modal-video-el');
+    const modalTitle = document.getElementById('modal-video-title');
+    const modalPartyTag = document.getElementById('modal-party-tag');
+    const modalDesc = document.getElementById('modal-video-desc');
+    const modalCheckpoints = document.getElementById('modal-checkpoints');
+    const modalCtaLink = document.getElementById('modal-cta-link');
+    const modalSpeedBtns = document.querySelectorAll('.modal-speed-btn');
+
+    let activeModalRange = { start: 0, end: 999 };
+
+    modalVideo?.addEventListener('timeupdate', () => {
+      if (modalVideo.currentTime >= activeModalRange.end) {
+        modalVideo.currentTime = activeModalRange.start;
+      }
+    });
+
+    const openVideoModal = (index) => {
+      const item = reelCardsData[index];
+      if (!item || !modal) return;
+
+      modalTitle.textContent = item.title;
+      modalPartyTag.textContent = item.party;
+      modalDesc.textContent = item.desc;
+
+      modalCheckpoints.innerHTML = item.checkpoints
+        .map(
+          (pt) => `
+          <li class="flex items-start gap-2.5">
+            <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-neon/20 text-neon text-xs font-bold">✓</span>
+            <span>${pt}</span>
+          </li>`
+        )
+        .join('');
+
+      activeModalRange = { start: item.start, end: item.end };
+      modalVideo.src = item.src;
+      modalVideo.currentTime = item.start;
+      modalVideo.playbackRate = 1.0;
+
+      modalSpeedBtns.forEach((b) => {
+        const isDefault = b.dataset.modalSpeed === '1';
+        b.classList.toggle('bg-neon', isDefault);
+        b.classList.toggle('text-white', isDefault);
+        b.classList.toggle('bg-graphite', !isDefault);
+        b.classList.toggle('text-zinc-300', !isDefault);
+      });
+
+      modal.showModal();
+      modalVideo.play().catch(() => {});
+    };
+
+    document.querySelectorAll('[data-open-modal]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        openVideoModal(Number(btn.dataset.openModal));
+      });
+    });
+
+    modalSpeedBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const rate = parseFloat(btn.dataset.modalSpeed || '1');
+        modalVideo.playbackRate = rate;
+        modalSpeedBtns.forEach((b) => {
+          b.classList.remove('bg-neon', 'text-white');
+          b.classList.add('bg-graphite', 'text-zinc-300');
+        });
+        btn.classList.add('bg-neon', 'text-white');
+        btn.classList.remove('bg-graphite', 'text-zinc-300');
+      });
+    });
+
+    modalCtaLink?.addEventListener('click', () => {
+      modal.close();
+    });
+
+    // Pause video and reset returnValue when modal closes (modern-web-guidance: dialog)
+    modal?.addEventListener('close', () => {
+      modalVideo.pause();
+      modal.returnValue = '';
+    });
+
+    // Mandatory fallback for browsers without native <dialog closedby="any"> support (modern-web-guidance: light-dismiss-a-dialog)
+    if (modal && !('closedBy' in HTMLDialogElement.prototype)) {
+      modal.addEventListener('click', (event) => {
+        if (event.target !== modal) return;
+        const rect = modal.getBoundingClientRect();
+        const isDialogContent =
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width;
+        if (isDialogContent) return;
+        modal.close();
+      });
+    }
+
+    /* -----------------------------------------------------------
+       5. ACCESSIBLE CAROUSEL CONTROLS & MARKERS (modern-web-guidance: carousel)
+    ----------------------------------------------------------- */
+    const track = document.getElementById('reels-track');
+    const markersNav = document.getElementById('carousel-markers');
+    const statusRegion = document.getElementById('carousel-status');
+    const prevBtn = document.querySelector('[data-direction="previous"]');
+    const nextBtn = document.querySelector('[data-direction="next"]');
+    const slideElements = Array.from(track?.querySelectorAll('.reel-slide') || []);
+
+    let activeSlideIndex = 0;
+    let settledSlideIndex = 0;
+    let pendingTargetIndex = null;
+
+    // Build marker buttons from data-marker-name
+    const markerButtons = slideElements.map((slide, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('aria-label', slide.dataset.markerName || `Karta ${i + 1}`);
+      btn.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+      btn.className =
+        'h-2.5 w-2.5 rounded-full bg-white/25 transition-all duration-200 hover:bg-white/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neon';
+      btn.addEventListener('click', () => {
+        scrollToSlide(i);
+      });
+      markersNav?.appendChild(btn);
+      return btn;
+    });
+
+    const setActiveMarker = (index) => {
+      if (index === activeSlideIndex) return;
+      activeSlideIndex = index;
+      markerButtons.forEach((btn, i) => {
+        btn.setAttribute('aria-current', i === index ? 'true' : 'false');
+      });
+    };
+
+    const getNearestSlideIndex = () => {
+      if (!track || !slideElements.length) return 0;
+      const trackRect = track.getBoundingClientRect();
+      const trackCenter = trackRect.left + trackRect.width / 2;
+      let bestIndex = 0;
+      let bestDist = Infinity;
+      slideElements.forEach((slide, idx) => {
+        const r = slide.getBoundingClientRect();
+        const center = r.left + r.width / 2;
+        const dist = Math.abs(center - trackCenter);
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestIndex = idx;
+        }
+      });
+      return bestIndex;
+    };
+
+    const scrollToSlide = (targetIdx) => {
+      if (!track || !slideElements[targetIdx]) return;
+      const clamped = (targetIdx + slideElements.length) % slideElements.length;
+      pendingTargetIndex = clamped;
+      setActiveMarker(clamped);
+
+      const trackRect = track.getBoundingClientRect();
+      const slideRect = slideElements[clamped].getBoundingClientRect();
+      const offset = (slideRect.left + slideRect.width / 2) - (trackRect.left + trackRect.width / 2);
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      track.scrollBy({ left: offset, behavior: prefersReduced ? 'instant' : 'smooth' });
+    };
+
+    prevBtn?.addEventListener('click', () => {
+      const base = pendingTargetIndex !== null ? pendingTargetIndex : getNearestSlideIndex();
+      scrollToSlide(base - 1);
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      const base = pendingTargetIndex !== null ? pendingTargetIndex : getNearestSlideIndex();
+      scrollToSlide(base + 1);
+    });
+
+    let rafTicking = false;
+    track?.addEventListener('scroll', () => {
+      if (pendingTargetIndex !== null || rafTicking) return;
+      rafTicking = true;
+      requestAnimationFrame(() => {
+        rafTicking = false;
+        setActiveMarker(getNearestSlideIndex());
+      });
+    });
+
+    const onScrollSettled = () => {
+      pendingTargetIndex = null;
+      const idx = getNearestSlideIndex();
+      setActiveMarker(idx);
+      if (idx !== settledSlideIndex) {
+        settledSlideIndex = idx;
+        if (statusRegion) {
+          statusRegion.textContent = `Zobrazena ukázka ${idx + 1} ze ${slideElements.length}`;
+        }
+      }
+    };
+
+    if ('onscrollend' in window) {
+      track?.addEventListener('scrollend', onScrollSettled);
+    } else {
+      let scrollTimer;
+      track?.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(onScrollSettled, 150);
+      });
+    }
+
+    /* -----------------------------------------------------------
+       6. PRE-SELECT GOAL FROM PACKAGE CARDS & FORM VALIDATION
+          (modern-web-guidance: validate-input-after-interaction & forms)
+    ----------------------------------------------------------- */
+    const goalSelect = document.getElementById('client-goal');
+    document.querySelectorAll('.service-select-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const goal = btn.dataset.selectGoal;
+        if (goal && goalSelect) {
+          goalSelect.value = goal;
+          goalSelect.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      });
+    });
+
+    const form = document.getElementById('coaching-form');
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+
+    // Link error message in aria-describedby only while invalid (modern-web-guidance)
+    const linkError = (el, shown) => {
+      const errorId = el.dataset?.error;
+      if (!errorId) return;
+      const ids = (el.getAttribute('aria-describedby') || '')
+        .split(/\s+/)
+        .filter((id) => id && id !== errorId);
+      if (shown) ids.push(errorId);
+      if (ids.length) el.setAttribute('aria-describedby', ids.join(' '));
+      else el.removeAttribute('aria-describedby');
+    };
+
+    const flagged = new WeakSet();
+    const syncAria = (el) => {
+      if (!el.matches?.('input, select, textarea')) return;
+      const supportsUserInvalid = CSS.supports('selector(:user-invalid)');
+      const invalid = supportsUserInvalid
+        ? el.matches(':user-invalid')
+        : el.classList.contains('user-invalid-fallback');
+
+      if (invalid) {
+        el.setAttribute('aria-invalid', 'true');
+        linkError(el, true);
+        flagged.add(el);
+      } else if (flagged.has(el) || el.getAttribute('aria-invalid') !== 'true') {
+        el.setAttribute('aria-invalid', 'false');
+        linkError(el, false);
+        flagged.delete(el);
+      }
+    };
+
+    form?.querySelectorAll('input, select, textarea').forEach((el) => syncAria(el));
+
+    form?.addEventListener('blur', (e) => syncAria(e.target), true);
+    form?.addEventListener('change', (e) => syncAria(e.target), true);
+    form?.addEventListener('input', (e) => {
+      if (e.target.hasAttribute('aria-invalid')) syncAria(e.target);
+    });
+    form?.addEventListener(
+      'invalid',
+      (e) => {
+        e.target.classList.add('user-invalid-fallback');
+        syncAria(e.target);
+      },
+      true
+    );
+
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        const firstInvalid = form.querySelector(':invalid');
+        firstInvalid?.focus();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      const nameVal = document.getElementById('client-name').value.trim();
+      const goalVal = document.getElementById('client-goal').value;
+
+      formStatus.classList.remove('hidden');
+      formStatus.textContent = `Díky, ${nameVal}! Tvoje poptávka (${goalVal}) byla přijata. Brzy se ti ozvu zpět na uvedený kontakt, abychom domluvili termín tréninku.`;
+      form.reset();
+      form.querySelectorAll('input, select, textarea').forEach((el) => {
+        el.classList.remove('user-invalid-fallback');
+        syncAria(el);
+      });
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
